@@ -1,0 +1,88 @@
+1. Count Words by Length and Flatten
+Modify the problem to count the number of words for each length instead of listing them, then flatten into a list of strings in the format:
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi", "elephant");
+Expected Output:
+["Length 3: 2 words", "Length 4: 1 word", "Length 5: 1 word", "Length 6: 1 word", "Length 8: 1 word"]
+*********************************************************************************************************
+2. Sort Words by Length and Flatten
+Instead of random order, sort the words by length before flattening.
+
+Example Input:
+List<String> words = List.of("banana", "dog", "elephant", "cat", "kiwi");
+Expected Output:
+["dog(3)", "cat(3)", "kiwi(4)", "banana(6)", "elephant(8)"]
+*********************************************************************************************************
+
+3. Reverse Words Before Flattening
+Before flattening, reverse each word but keep the grouping by length.
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi");
+Expected Output:
+["elppa(5)", "ananab(6)", "god(3)", "tac(3)", "iwik(4)"]
+*********************************************************************************************************
+
+4. Keep Only Unique Lengths and Flatten
+Instead of grouping all words, keep only one word per unique length and flatten.
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi", "grape", "tree");
+Expected Output:
+["dog(3)", "kiwi(4)", "apple(5)", "banana(6)"]
+(Only one word from each length category is included.)
+*********************************************************************************************************
+
+5. Append Word Frequency to Output
+Instead of just formatting as "word(length)", also add how many times the length appears in the original list.
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi", "grape", "tree");
+Expected Output:
+["dog(3) - 2 words", "kiwi(4) - 2 words", "apple(5) - 2 words", "banana(6) - 1 word"]
+*********************************************************************************************************
+
+6. Uppercase Words Before Flattening
+Before flattening, convert all words to uppercase.
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi");
+Expected Output:
+["DOG(3)", "CAT(3)", "KIWI(4)", "APPLE(5)", "BANANA(6)"]
+*********************************************************************************************************
+
+7. Flatten with a Custom Separator
+Instead of outputting a list, join all words into a single string separated by " | ".
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi");
+Expected Output:
+"DOG(3) | CAT(3) | KIWI(4) | APPLE(5) | BANANA(6)"
+*********************************************************************************************************
+
+8. Find the Most Common Word Length
+Instead of flattening, determine which word length appears most frequently.
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi", "grape", "tree");
+Expected Output:
+"Most common length: 3 (2 words)"
+*********************************************************************************************************
+
+9. Remove Words of a Specific Length Before Flattening
+Before flattening, remove all words of a specific length (e.g., remove words of length 4).
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi", "grape", "tree");
+Expected Output (if removing length 4 words):
+["dog(3)", "cat(3)", "apple(5)", "banana(6)"]
+*********************************************************************************************************
+
+10. Group Words by First Letter and Flatten
+Instead of length, group words by their first letter, then flatten.
+
+Example Input:
+List<String> words = List.of("apple", "banana", "dog", "cat", "kiwi");
+Expected Output:
+["a: apple", "b: banana", "c: cat", "d: dog", "k: kiwi"]
+*********************************************************************************************************
