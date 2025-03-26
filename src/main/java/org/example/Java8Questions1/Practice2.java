@@ -19,10 +19,21 @@ public class Practice2 {
 
         //Instead of random order, sort the words by length before flattening.
         SortWordsByLengthAndFlatten(words);
+
+        //Instead of grouping all words, keep only one word per unique length and flatten.
+        KeepOnlyUniqueLengthsAndFlatten(words);
+    }
+
+    private static void KeepOnlyUniqueLengthsAndFlatten(List<String> words) {
+        Map<Integer,List<String>> collect1 =words.stream().collect(Collectors.groupingBy(String::length));
+       List<String> collect2 = collect1.entrySet().stream().flatMap(st->st.getValue().stream().limit(1).map(word->word + "("+ st.getKey() + ")")).collect(Collectors.toList());
+        System.out.println(collect2);
     }
 
     private static void SortWordsByLengthAndFlatten(List<String> words) {
-
+        Map<Integer,List<String>> collect = words.stream().collect(Collectors.groupingBy(String::length));
+        var stringStream = collect.entrySet().stream().sorted(Map.Entry.comparingByKey()).flatMap(st -> st.getValue().stream().map(word -> word + "(" + st.getKey() + ")")).collect(Collectors.toList());
+        System.out.println(stringStream);
     }
 
     private static List<String> CountWordsByLengthAndFlatten(List<String> words) {
