@@ -2,7 +2,6 @@ package org.example.Java8Questions1;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Practice2 {
 
@@ -22,6 +21,28 @@ public class Practice2 {
 
         //Instead of grouping all words, keep only one word per unique length and flatten.
         KeepOnlyUniqueLengthsAndFlatten(words);
+
+        //Instead of just formatting as "word(length)", also add how many times the length appears in the original list.
+        /*
+        Expected Output:
+        ["dog(3) - 2 words", "kiwi(4) - 2 words", "apple(5) - 2 words", "banana(6) - 1 word"]
+         */
+        AppendWordFrequencyToOutput(words);
+
+        UppercaseWordsBeforeFlattening(words);
+    }
+
+    private static void UppercaseWordsBeforeFlattening(List<String> words) {
+        var collect = words.stream().collect(Collectors.groupingBy(String::length));
+        var collect1 = collect.entrySet().stream().flatMap(st -> st.getValue().stream().map(word -> word.toUpperCase() + "(" + st.getKey() + ")")).collect(Collectors.joining(" | "));
+        System.out.println(collect1);
+    }
+
+    private static void AppendWordFrequencyToOutput(List<String> words) {
+        var collect = words.stream().collect(Collectors.groupingBy(String::length));
+        var collect1 = collect.entrySet().stream().flatMap(st -> st.getValue().stream().map(w -> w + "(" + st.getKey() + ")" + " - " + st.getValue().stream().count())).collect(Collectors.toList());
+
+        System.out.println(collect1);
     }
 
     private static void KeepOnlyUniqueLengthsAndFlatten(List<String> words) {
